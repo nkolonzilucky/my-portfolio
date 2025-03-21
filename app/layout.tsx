@@ -27,7 +27,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Header */}
+      <header className="bg-black text-white py-4 px-6 font-semibold">
+        Portfolio Design
+      </header>
+      
+        {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">{children}</main>
+
+         {/* Footer */}
+      <footer className="bg-gray-900 text-white text-center py-4 mt-12">
+        &copy; {new Date().getFullYear()} Lucky Nkolonzi - All Rights Reserved
+      </footer>
       </body>
     </html>
   );
