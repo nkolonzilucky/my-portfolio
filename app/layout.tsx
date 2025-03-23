@@ -33,7 +33,7 @@ export default function RootLayout({
       </header>
       
         {/* Main Content */}
-      <main className="container mx-auto max-w-full">{children}</main>
+      <main className="mx-auto max-w-full">{children}</main>
 
         <hr className="max-w-full mx-auto text-gray-800"></hr>
          {/* Footer */}
