@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white pb-12">
       {/* Hero Section */}
       <section className="w-full max-w-4xl p-8 text-center bg-gray-800 rounded-lg shadow-lg">
         <Image

@@ -33,10 +33,11 @@ export default function RootLayout({
       </header>
       
         {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">{children}</main>
+      <main className="container mx-auto max-w-full">{children}</main>
 
+        <hr className="max-w-full mx-auto text-gray-800"></hr>
          {/* Footer */}
-      <footer className="bg-gray-900 text-white text-center py-4 mt-12">
+      <footer className="bg-gray-900 text-white text-center py-4">
         &copy; {new Date().getFullYear()} Lucky Nkolonzi - All Rights Reserved
       </footer>
       </body>
