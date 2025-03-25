@@ -1,6 +1,11 @@
-'use client';
-
 import Image from 'next/image';
+import { PROJECTS_QUERY } from '@/sanity/lib/queries';
+import { client } from '@sanity/lib/client';
+
+async function getProjects(){
+  const projects = await client.fetch(PROJECTS_QUERY);
+  return projects;
+}
 
 export default function Home() {
   return (
