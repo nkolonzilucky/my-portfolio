@@ -6,3 +6,10 @@ export const PROJECTS_QUERY = defineQuery(`*[_type == "project"]{
   link,
   image
 }`);
+
+export const USER_QUERY = defineQuery(`*[_type == "user"][0]{
+  names,
+  role,
+  image,
+  about
+}`)
