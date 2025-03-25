@@ -4,21 +4,22 @@ import React, { useState } from "react";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
-        name: "Lucky",
-        email: "nkolonzilucky@gmail.com",
-        message: "Hello New World, all the boys and girls."
+        name: "",
+        email: "",
+        message: ""
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log(`handling change -> ${e.target.name} : ${e.target.value} ` )
+        setSuccess(false);
         setFormData({...formData, [e.target.name]: e.target.value});
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setSuccess(false);
         setIsSubmitting(true);
 
         const response = await fetch("/api/contact", {
