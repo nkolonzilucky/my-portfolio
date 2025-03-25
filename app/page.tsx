@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { PROJECTS_QUERY } from '@/sanity/lib/queries';
-import { client } from '@/sanity/lib/client';
+import { client, urlFor } from '@/sanity/lib/client';
 
 async function getProjects(){
   const projects = await client.fetch(PROJECTS_QUERY);
@@ -36,7 +36,8 @@ export default async function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
           {projects.map((item) => (
             <div key={item.title} className="p-4 bg-gray-800 rounded-lg shadow-md">
-              <div className="w-full h-32 bg-gray-700 rounded"></div>
+              {/* <div className="w-full h-32 bg-gray-700 rounded"></div> */}
+              <Image className='mx-auto' alt='pic' width={150} height={120} src={urlFor(item.image).url()} />
               <h3 className="mt-2 text-lg font-bold">{item.title}</h3>
               <p className="text-gray-400 text-sm">{item.description}</p>
               <button className="mt-2 px-4 py-1 bg-blue-600 rounded-lg hover:bg-blue-500">
