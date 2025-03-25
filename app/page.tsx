@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import { PROJECTS_QUERY } from '@/sanity/lib/queries';
-import { client } from '@sanity/lib/client';
+import { client } from '@/sanity/lib/client';
 
 async function getProjects(){
   const projects = await client.fetch(PROJECTS_QUERY);
   return projects;
 }
 
-export default function Home() {
+export default async function Home() {
+  const projects =  await getProjects();
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white pb-12">
       {/* Hero Section */}
@@ -33,13 +34,15 @@ export default function Home() {
       <section className="w-full max-w-4xl mt-12 text-center">
         <h2 className="text-xl font-semibold">Latest Work</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-          {[1, 2, 3].map((item) => (
-            <div key={item} className="p-4 bg-gray-800 rounded-lg shadow-md">
+          {projects.map((item) => (
+            <div key={item.title} className="p-4 bg-gray-800 rounded-lg shadow-md">
               <div className="w-full h-32 bg-gray-700 rounded"></div>
-              <h3 className="mt-2 text-lg font-bold">The Cake Angel</h3>
-              <p className="text-gray-400 text-sm">A web app that allows users to pick a cake design, the delivery date, and location.</p>
+              <h3 className="mt-2 text-lg font-bold">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.description}</p>
               <button className="mt-2 px-4 py-1 bg-blue-600 rounded-lg hover:bg-blue-500">
+                <a href={item.link} target='_blank'>
                 View More
+                </a>
               </button>
             </div>
           ))}
