@@ -1,6 +1,8 @@
+
 import Image from 'next/image';
 import { PROJECTS_QUERY, USER_QUERY } from '@/sanity/lib/queries';
 import { client, urlFor } from '@/sanity/lib/client';
+import ContactForm from './components/ContactForm';
 
 async function getProjects(){
   const projects = await client.fetch(PROJECTS_QUERY);
@@ -55,17 +57,7 @@ export default async function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full max-w-4xl mt-12 p-6 bg-gray-800 rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold text-center">Let's Connect!</h2>
-        <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" placeholder="Name" className="p-2 bg-gray-700 rounded" />
-          <input type="email" placeholder="Email" className="p-2 bg-gray-700 rounded" />
-          <textarea placeholder="Message" className="p-2 bg-gray-700 rounded col-span-2"></textarea>
-          <button className="col-span-2 px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500">
-            Submit
-          </button>
-        </form>
-      </section>
+      <ContactForm />
     </main>
   );
 }
