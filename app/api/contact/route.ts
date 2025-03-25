@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { sanityClient } from "@/sanity";
+import { client } from "@/sanity/lib/client";
 
 export async function POST(req: Request){
     try {
         const {name, email, message} = await req.json();
 
-        await sanityClient.create({
+        await client.create({
             _type: "message",
             name,
             email, 

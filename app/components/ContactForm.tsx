@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
+        name: "Lucky",
+        email: "nkolonzilucky@gmail.com",
+        message: "Hello New World, all the boys and girls."
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);

@@ -40,7 +40,7 @@ export default async function Home() {
       <section className="w-full max-w-4xl mt-12 text-center">
         <h2 className="text-xl font-semibold">Latest Work</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-          {projects.map((item) => (
+          {projects.map((item:any) => (
             <div key={item.title} className="p-4 bg-gray-800 rounded-lg shadow-md">
               {/* <div className="w-full h-32 bg-gray-700 rounded"></div> */}
               <Image className='w-full rounded-md h-70' alt='pic' width={150} height={120} src={urlFor(item.image).url()} />
