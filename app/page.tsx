@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PROJECTS_QUERY, USER_QUERY } from '@/sanity/lib/queries';
 import { client, urlFor } from '@/sanity/lib/client';
 import ContactForm from './components/ContactForm';
+import Messages from './components/Messages';
 
 async function getProjects(){
   const projects = await client.fetch(PROJECTS_QUERY);
@@ -58,6 +59,9 @@ export default async function Home() {
 
       {/* Contact Section */}
       <ContactForm />
+
+      {/* Messages Section */}
+      <Messages />
     </main>
   );
 }

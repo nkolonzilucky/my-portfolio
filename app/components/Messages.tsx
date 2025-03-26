@@ -1,4 +1,5 @@
-import { sanityClient } from "@/sanity";
+"use client"
+import { client } from "@/sanity/lib/client";
 import { useEffect, useState } from "react";
 
 type Message = {
@@ -12,7 +13,7 @@ export default function Messages() {
     const [messages, setMessages] = useState<Message[]>([])
 
     useEffect(() => {
-        sanityClient.fetch(`*[_type == message] | order(_createdAt desc)`).then(setMessages), []});
+        client.fetch(`*[_type == message] | order(_createdAt desc)`).then(setMessages), []});
     
     return (
         <div className="p-6 bg-gray-800 text-white rounded-lg">
