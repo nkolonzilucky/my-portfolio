@@ -3,16 +3,14 @@
 import { useState } from "react"
 
 
-function handleRespond(id:string){
-    console.log("Hello Button: ", id)
-    const responseField = document.getElementById(`responseField+${id}`);
-    responseField?.toggleAttribute("hidden")
+function handleRespond(){
+    console.log("Hello Button: ")
     
 }
 
-export default function RespondButton(id:string) {
+export default function RespondButton() {
     return(
-        <button onClick={() => handleRespond(id)} className="bg-blue-500 m-2 rounded-md hover:bg-blue-400 px-6 py-2">Respond</button>
+        <button onClick={() => handleRespond()} className="bg-blue-500 m-2 rounded-md hover:bg-blue-400 px-6 py-2">Respond</button>
         
     )
 }

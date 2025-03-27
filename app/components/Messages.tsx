@@ -18,7 +18,6 @@ async function getMessages():Promise<Message[]> {
 export default async function Messages() {
     const messages: Message[] = await getMessages();
     
-    
     return (
         <div className="flex flex-col p-6 bg-gray-800 text-white rounded-lg mt-8 w-4xl">
             <h2 className="text-xl mb-4 font-bold text-center">Messages</h2>
@@ -34,9 +33,8 @@ export default async function Messages() {
                             <span className="text-sm">{msg.name}</span>
                             <span className="text-gray-400 ml-1 text-sm">({msg.email})</span>
                         </p>
-                    <input key={`${msg._id}+"input"`} className="bg-gray-500 w-full mt-4 ml-4" id={`responseField+${msg._id}`} hidden />
                     </div>
-                    <RespondButton key={`${msg._id}+${1}`} />
+                    <RespondButton />
                 </div>
             ))}
         </div>

@@ -4,6 +4,7 @@ import { PROJECTS_QUERY, USER_QUERY } from '@/sanity/lib/queries';
 import { client, urlFor } from '@/sanity/lib/client';
 import ContactForm from './components/ContactForm';
 import Messages from './components/Messages';
+import ResponseForm from './components/ResponseForm';
 
 async function getProjects(){
   const projects = await client.fetch(PROJECTS_QUERY);
@@ -62,6 +63,9 @@ export default async function Home() {
 
       {/* Messages Section */}
       <Messages />
+
+      {/* testing response form */}
+      <ResponseForm />
     </main>
   );
 }
