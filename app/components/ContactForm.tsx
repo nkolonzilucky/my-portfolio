@@ -36,7 +36,8 @@ export default function ContactForm() {
             setSuccess(true);
             setFormData({name: "", email: "", message: ""});
         } else {
-            alert("Failed to send message")
+            const results = await response.json(); 
+            alert(results.error)
         }
     };
 

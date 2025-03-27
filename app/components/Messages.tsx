@@ -1,7 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { MESSAGE_QUERY } from "@/sanity/lib/queries";
 
-type Message = {
+export type Message = {
     _id: string;
     name: string;
     email: string;
