@@ -12,4 +12,16 @@ export const USER_QUERY = defineQuery(`*[_type == "user"][0]{
   role,
   image,
   about
-}`)
+}`);
+
+export const MESSAGE_QUERY = defineQuery(`*[_type == "message"] | order(_createdAt desc){
+  _id,
+  name,
+  email,
+  message
+}`);
+
+export const VERIFY_DUPLICATE_USER_SUBMISSIONS = defineQuery(`*[_type == "message"]{
+  name,
+  email
+}`);

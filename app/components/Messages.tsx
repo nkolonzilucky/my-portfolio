@@ -1,6 +1,5 @@
-"use client"
 import { client } from "@/sanity/lib/client";
-import { useEffect, useState } from "react";
+import { MESSAGE_QUERY } from "@/sanity/lib/queries";
 
 type Message = {
     _id: string;
@@ -9,17 +8,23 @@ type Message = {
     message: string;
 };
 
-export default function Messages() {
-    const [messages, setMessages] = useState<Message[]>([])
+async function getMessages():Promise<Message[]> {
+    const messages = client.fetch(MESSAGE_QUERY);
+    return messages;
+}
 
-    useEffect(() => {
-        client.fetch(`*[_type == message] | order(_createdAt desc)`).then(setMessages), []});
+
+export default async function Messages() {
+    const messages: Message[] = await getMessages();
+    
     
     return (
-        <div className="p-6 bg-gray-800 text-white rounded-lg">
+        <div className="p-6 bg-gray-800 text-white rounded-lg mt-8">
             <h2 className="text-xl mb-4">Messages</h2>
             {messages.length === 0 && <p>No Messages yet.</p>}
-            {messages.map(msg => (
+            {messages.filter((msg) => {
+                return msg.email.length > 0 && msg.name.length > 0 && msg.message.length > 0}).map(msg => (
+                
                 <div key={msg._id} className="p-3 border-b border-gray-600">
                     <p><strong>{msg.name}</strong> ({msg.email})</p>
                     <p>{msg.message}</p>
