@@ -25,7 +25,7 @@ export default async function Messages() {
             {messages.length === 0 && <p>No Messages yet.</p>}
             {messages.filter((msg) => {
                 return msg.email.length > 0 && msg.name.length > 0 && msg.message.length > 0}).map((msg, index) => (
-                <div key={msg._id} className="border-b border-gray-700">
+                <div key={msg._id} className="py-4">
                     <div className="flex justify-between items-center">
                         <div className="p-3  border-gray-600">
                             <p>
