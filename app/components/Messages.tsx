@@ -24,16 +24,16 @@ export default async function Messages() {
             <h2 className="text-xl mb-4 font-bold text-center">Messages</h2>
             {messages.length === 0 && <p>No Messages yet.</p>}
             {messages.filter((msg) => {
-                return msg.email.length > 0 && msg.name.length > 0 && msg.message.length > 0}).map(msg => (
-                <div className="border-b border-gray-400">
-                    <div key={msg._id} className="border-b border-gray-600 flex justify-between items-center">
+                return msg.email.length > 0 && msg.name.length > 0 && msg.message.length > 0}).map((msg, index) => (
+                <div key={msg._id} className="border-b border-gray-700">
+                    <div className="flex justify-between items-center">
                         <div className="p-3  border-gray-600">
-                            <p className="text-gray-300 text-2xl">{msg.message}</p>
                             <p>
-                                <span className="text-gray-500">from: </span>
-                                <span className="text-sm">{msg.name}</span>
+                                {/* <span className="text-gray-500">from: </span> */}
+                                <span className="text-sm text-gray-300">{msg.name}</span>
                                 <span className="text-gray-400 ml-1 text-sm">({msg.email})</span>
                             </p>
+                            <p className="mt-1 text-gray-300 text-2xl">{msg.message}</p>
                         </div>
                         <RespondButton />
                     </div>
